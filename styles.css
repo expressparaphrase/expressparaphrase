@@ -5,7 +5,8 @@ body {
 }
 
 header {
-    background: #4CAF50;
+    background: #01730d;
+    background-image: linear-gradient(to bottom right, #01730d, #06bd13);
     color: white;
     padding: 50px 0;
 }
@@ -19,7 +20,7 @@ header {
 }
 
 header .logo {
-    width: 100px; /* Atur ukuran logo sesuai kebutuhan */
+    width: 100px;
     height: auto;
 }
 
@@ -46,7 +47,8 @@ header .btn:hover {
     padding: 20px 0;
 }
 
-.services, .contact {
+.services,
+.contact {
     padding: 50px 0;
     background: #f4f4f4;
 }
@@ -64,7 +66,8 @@ header .btn:hover {
     margin-bottom: 5px;
 }
 
-.contact form input, .contact form textarea {
+.contact form input,
+.contact form textarea {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -85,7 +88,7 @@ header .btn:hover {
 }
 
 footer {
-    background: #333;
+    background: #1D2632;
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -95,7 +98,7 @@ footer {
 .slideshow-container {
     position: relative;
     width: 100%;
-    height: 25vh; /* Tinggi seperempat dari ukuran layar */
+    height: 25vh;
     overflow: hidden;
 }
 
@@ -107,7 +110,7 @@ footer {
 .mySlides img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Agar gambar sesuai dengan container */
+    object-fit: cover;
 }
 
 .fade {
@@ -116,8 +119,12 @@ footer {
 }
 
 @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
+    from {
+        opacity: 0.4
+    }
+    to {
+        opacity: 1
+    }
 }
 
 .dot {
@@ -141,7 +148,7 @@ footer {
 /* Ikon WhatsApp Mengambang */
 .whatsapp-float {
     position: fixed;
-    width: 60px; /* Atur ukuran ikon WhatsApp sesuai kebutuhan */
+    width: 60px;
     height: 60px;
     bottom: 40px;
     right: 40px;
@@ -180,12 +187,12 @@ footer {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 30%;
-    margin: 0 10px; /* Memberikan jarak antar elemen item paket */
+    margin: 0 10px;
 }
 
 .paket-item h3 {
     margin-top: 0;
-    text-align: center; /* Memusatkan teks dalam paket item */
+    text-align: center;
 }
 
 .paket-item .btn {
@@ -201,7 +208,6 @@ footer {
 .paket-item .btn:hover {
     background: #45a049;
 }
-
 
 /* Section Testimoni */
 .testimoni {
@@ -221,16 +227,23 @@ footer {
 .testimoni-slideshow {
     overflow: hidden;
     white-space: nowrap;
+    width: 100%;
 }
 
 .testimoni-slide-track {
     display: flex;
     animation: scroll 20s linear infinite;
+    width: 25%;
+    height: 15%;
 }
 
 @keyframes scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% / (3 + 1)));
+    }
 }
 
 .testimoni-slide {
@@ -241,6 +254,8 @@ footer {
 
 .testimoni-slide img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Dots/bullets/indicators */
@@ -259,9 +274,29 @@ footer {
 }
 
 /* Dots on smaller screens */
-@media only screen and (max-width: 300px) {
-    .dot-testimoni {
-        width: 10px;
-        height: 10px;
+@media only screen and (max-width: 768px) {
+    /* Tambahkan perubahan khusus untuk layar kecil di sini */
+    .header-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .header-text {
+      margin-top: 20px;
+    }
+
+    .paket-item-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .paket-item {
+      width: 80%; /* Mengisi 80% lebar layar */
+      margin: 10px 0;
+    }
+
+    .whatsapp-float {
+      bottom: 20px;
+      right: 20px;
     }
 }
