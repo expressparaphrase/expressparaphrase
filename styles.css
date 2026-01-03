@@ -1,302 +1,114 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+:root {
+    --brand-green: #01730d;
+    --brand-light: #06bd13;
+    --slate-900: #0f172a;
+    --slate-600: #475569;
+    --white: #ffffff;
+    --bg-gray: #f1f5f9;
+    --radius-lg: 24px;
+    --shadow-pro: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--slate-900); background: var(--white); scroll-behavior: smooth; line-height: 1.5; }
+
+/* Header Modern */
 header {
-    background: #01730d;
-    background-image: linear-gradient(to bottom right, #01730d, #06bd13);
-    color: white;
-    padding: 50px 0;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-    margin: 0 auto;
-}
-
-header .logo {
-    width: 100px;
-    height: auto;
-}
-
-.header-text {
+    background: linear-gradient(135deg, var(--brand-green), var(--brand-light));
+    padding: 60px 0 160px;
     text-align: center;
-    flex-grow: 1;
-}
-
-header .btn {
-    background: white;
-    color: #4CAF50;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-header .btn:hover {
-    background: #45a049;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.services,
-.contact {
-    padding: 50px 0;
-    background: #f4f4f4;
-}
-
-.service {
-    margin-bottom: 20px;
-}
-
-.contact form {
-    display: flex;
-    flex-direction: column;
-}
-
-.contact form label {
-    margin-bottom: 5px;
-}
-
-.contact form input,
-.contact form textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.contact form button {
-    background: #4CAF50;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
 }
 
-.contact form button:hover {
-    background: #45a049;
-}
+.header-container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.logo-top { width: 120px; margin-bottom: 30px; filter: brightness(0) invert(1); }
+h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px; }
+h1 span { color: #d1ffd6; text-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+header p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 40px; font-weight: 400; }
 
-footer {
-    background: #1D2632;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
+.btn { padding: 18px 36px; border-radius: 100px; text-decoration: none; font-weight: 700; transition: 0.4s; display: inline-block; margin: 8px; }
+.btn-main { background: var(--white); color: var(--brand-green); }
+.btn-secondary { border: 2px solid rgba(255,255,255,0.4); color: white; }
+.btn:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
-/* Slideshow */
-.slideshow-container {
+/* SLIDESHOW FRAME: PERFECT FIT */
+.hero-frame-wrapper {
+    max-width: 1000px;
+    margin: -110px auto 80px;
+    padding: 0 20px;
     position: relative;
-    width: 100%;
-    height: 25vh;
-    overflow: hidden;
+    z-index: 50;
 }
 
-.mySlides {
-    display: none;
-    height: 100%;
+.hero-frame-container {
+    background: var(--white);
+    padding: 8px; /* Bingkai putih luar */
+    border-radius: 32px;
+    box-shadow: var(--shadow-pro);
 }
 
+.slideshow-box {
+    position: relative;
+    border-radius: 24px; /* Bingkai dalam */
+    overflow: hidden; /* Masking gambar */
+    aspect-ratio: 16 / 8.5; /* Rasio emas untuk desktop */
+    background: #000;
+}
+
+.mySlides { display: none; width: 100%; height: 100%; }
 .mySlides img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Gambar ngepas frame tanpa distorsi */
+    display: block;
 }
 
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
+.nav-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 60; }
+.dot-item { height: 8px; width: 8px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+.dot-item.active { width: 28px; border-radius: 10px; background: white; }
 
-@keyframes fade {
-    from {
-        opacity: 0.4
-    }
-    to {
-        opacity: 1
-    }
-}
+/* Pricing Cards */
+.pricing-section { padding: 80px 0; background: var(--bg-gray); }
+.section-header { text-align: center; margin-bottom: 60px; }
+.sub-title { color: var(--brand-green); font-weight: 800; font-size: 0.9rem; letter-spacing: 2px; }
+.section-header h2 { font-size: 2.5rem; font-weight: 800; margin-top: 10px; }
 
-.dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+.price-card { background: white; padding: 50px 40px; border-radius: 24px; transition: 0.4s; border: 1px solid #e2e8f0; position: relative; }
+.price-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-pro); border-color: var(--brand-green); }
 
-.active {
-    background-color: #717171;
-}
+.price-card.featured { border: 2px solid var(--brand-green); transform: scale(1.05); }
+.popular-label { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--brand-green); color: white; padding: 6px 20px; border-radius: 100px; font-size: 0.8rem; font-weight: 800; }
 
-.dot:hover {
-    background-color: #717171;
-}
+.amount { font-size: 2.8rem; font-weight: 800; margin: 25px 0; color: var(--brand-green); }
+.amount small { font-size: 1rem; color: var(--slate-600); font-weight: 400; }
 
-/* Ikon WhatsApp Mengambang */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    z-index: 100;
-}
+.benefit-list { list-style: none; margin-bottom: 40px; text-align: left; }
+.benefit-list li { margin-bottom: 16px; display: flex; align-items: center; gap: 12px; font-weight: 500; color: var(--slate-600); }
+.benefit-list li i { color: var(--brand-green); font-size: 1.1rem; }
 
-.whatsapp-float img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.btn-order { display: block; text-align: center; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0; text-decoration: none; font-weight: 700; color: var(--slate-900); transition: 0.3s; }
+.btn-order.active { background: var(--brand-green); color: white; border: none; }
+.btn-order:hover { background: var(--brand-green); color: white; }
 
-/* Section Paket */
-.paket {
-    padding: 50px 0;
-    background: #fff;
-}
+/* Testimonial Infinite Scroll */
+.testi-track-container { overflow: hidden; padding: 20px 0; }
+.testi-track { display: flex; gap: 30px; width: fit-content; animation: slideInfinite 35s linear infinite; }
+.testi-box { width: 350px; height: 220px; border-radius: 20px; overflow: hidden; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
+.testi-box img { width: 100%; height: 100%; object-fit: contain; }
 
-.paket .container {
-    text-align: center;
-}
+@keyframes slideInfinite { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-.paket h2 {
-    margin-bottom: 30px;
-    text-align: center;
-}
+/* Floating WA Premium */
+.wa-sticky { position: fixed; bottom: 40px; right: 40px; background: #25d366; color: white; width: 68px; height: 68px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; box-shadow: 0 15px 30px rgba(37,211,102,0.3); z-index: 1000; transition: 0.4s; }
+.wa-sticky:hover { transform: scale(1.1) rotate(10deg); }
 
-.paket-item-container {
-    display: flex;
-    justify-content: space-around;
-}
+footer { padding: 50px 0; background: var(--slate-900); color: white; text-align: center; opacity: 0.9; }
 
-.paket-item {
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    margin: 0 10px;
-}
-
-.paket-item h3 {
-    margin-top: 0;
-    text-align: center;
-}
-
-.paket-item .btn {
-    background: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.paket-item .btn:hover {
-    background: #45a049;
-}
-
-/* Section Testimoni */
-.testimoni {
-    padding: 50px 0;
-    background: #f9f9f9;
-}
-
-.testimoni .container {
-    text-align: center;
-}
-
-.testimoni h2 {
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.testimoni-slideshow {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-}
-
-.testimoni-slide-track {
-    display: flex;
-    animation: scroll 20s linear infinite;
-    width: 25%;
-    height: 15%;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-100% / (3 + 1)));
-    }
-}
-
-.testimoni-slide {
-    display: inline-block;
-    width: 100%;
-    flex: none;
-}
-
-.testimoni-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Dots/bullets/indicators */
-.dot-testimoni {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.active-testimoni {
-    background-color: #717171;
-}
-
-/* Dots on smaller screens */
-@media only screen and (max-width: 768px) {
-    /* Tambahkan perubahan khusus untuk layar kecil di sini */
-    .header-container {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .header-text {
-      margin-top: 20px;
-    }
-
-    .paket-item-container {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .paket-item {
-      width: 80%; /* Mengisi 80% lebar layar */
-      margin: 10px 0;
-    }
-
-    .whatsapp-float {
-      bottom: 20px;
-      right: 20px;
-    }
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .hero-frame-wrapper { margin-top: -80px; }
+    .slideshow-box { aspect-ratio: 16 / 10; }
+    .pricing-grid { grid-template-columns: 1fr; }
 }
